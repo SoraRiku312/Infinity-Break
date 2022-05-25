@@ -12,6 +12,7 @@ public class Block : MonoBehaviour
     private int _health = 5;
 
 
+
     private void Awake()
     {
 
@@ -71,14 +72,25 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer != 6) return;
-        FindObjectOfType<AudioManager>().Play("pop1");
         var ballLevel = other.gameObject.GetComponent<Ball>().Level;
         _health -= ballLevel;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+
+            GetComponent<ParticleSystem>().Play();
+            GetComponent<Renderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+//            Destroy(gameObject);
             GameManager.Instance.score++;
+            FindObjectOfType<AudioManager>().Play("pop1");
+
         }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("bottle1");
+        }
+
+
         UpdateVisuals();
     }
 

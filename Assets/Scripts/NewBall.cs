@@ -20,6 +20,8 @@ public class NewBall : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.ballCount++;
+        FindObjectOfType<AudioManager>().Play("drip");
+
         Destroy(gameObject);
     }
 }

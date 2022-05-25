@@ -15,6 +15,6 @@ public class StardustUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _textMeshPro.text = "Stardust - " + GameManager.Instance.dust;
+        _textMeshPro.text = GameManager.Instance.dust.ToString();
     }
 }

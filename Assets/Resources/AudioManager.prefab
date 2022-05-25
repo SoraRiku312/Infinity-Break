@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8604096337631560769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8604096337631560775}
+  - component: {fileID: 8604096337631560774}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8604096337631560775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604096337631560769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4509085, y: 2.0545971, z: -5.356381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8604096337631560774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604096337631560769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ce77e2bac48384f8bb64901fd7c39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: bottle1
+    clip: {fileID: 8300000, guid: 3939941fbc39e8b4b90b109ee3fc38a9, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: cap1
+    clip: {fileID: 8300000, guid: a2a472bf334613140ba47ddce62d4285, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: bottle2
+    clip: {fileID: 8300000, guid: 5715e3c7190140e45bfd34c789954911, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: pop1
+    clip: {fileID: 8300000, guid: 2f49c25b77e2e754cad4d8e45c293585, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: drip
+    clip: {fileID: 8300000, guid: b4e530a502b5ce646be6dfbdc79991f2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: magicbutton
+    clip: {fileID: 8300000, guid: 3a35b52ed3f2e71468e7dc048763a318, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
