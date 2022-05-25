@@ -19,6 +19,8 @@ public class Dust : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.dust++;
+        FindObjectOfType<AudioManager>().Play("magicbutton");
+
         Destroy(gameObject);
     }
     

@@ -16,11 +16,11 @@ public class BlockSpawner : MonoBehaviour
     [SerializeField] private NewBall _newBallPrefab;
     [SerializeField] private Dust _dustPrefab;
 
-    [SerializeField] private int _playWidth = 8;
+    [SerializeField] private int _playWidth = 7;
     private float _camWidth;
     private float _camHeight;
 
-    private float _distanceBetweenBlocks = .7f;
+    [SerializeField] private float _distanceBetweenBlocks = .5f;
     [SerializeField] private float _speed = -0.1f;
     private float _timer;
     private int _rowsSpawned;
@@ -36,21 +36,28 @@ public class BlockSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _camWidth = Camera.main.pixelWidth;
+/*        _camWidth = Camera.main.pixelWidth;
         _camHeight = Camera.main.pixelHeight;
         if (_camHeight != 1920f || _camHeight != 2160f)
         {
             _distanceBetweenBlocks = 0.688f;
             _playWidth = 7;
         }
+
+        if (_camWidth == 1080f)
+        {
+            _playWidth = 6;
+        }*/
+    
+
+
+ //       SpawnRowOfBlocks();
+
     }
 
     private void OnEnable()
     {
-        for (var i = 0; i < 1; i++)
-        {
-            SpawnRowOfBlocks();
-        }
+
 
     }
 
@@ -132,13 +139,16 @@ public class BlockSpawner : MonoBehaviour
             health = GameManager.Instance.score == 0 ? 1 : GameManager.Instance.score/ 4;
             if (health == 0) health = 1;
 //            var health = Random.Range(1, 3) + _rowsSpawned;
-            //TODO make one block per row double hp
             
             block.SetHits(health);
             _blocks.Add(block);
         }
         //run function again if no blocks spawned
-        if (_blockCount == 0) SpawnRowOfBlocks();
+        if (_blockCount == 0)
+        {
+            SpawnRowOfBlocks();
+            return;
+        }
 
         _rowsSpawned++;
 
@@ -149,6 +159,7 @@ public class BlockSpawner : MonoBehaviour
         emptySpaces.Remove(newBallSpot);
         
         if (emptySpaces.Count == 0) return;
+        if (Random.Range(0, 100) < 95) return;
         int dustSpot = emptySpaces[Random.Range(0, emptySpaces.Count - 1)];
         var dust = Instantiate(_dustPrefab, GetPosition(dustSpot), Quaternion.identity);
         emptySpaces.Remove(dustSpot);

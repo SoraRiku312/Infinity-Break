@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreTMP;
     void Start()
     {
-        
+        GameManager.Instance.SaveGame();
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class GameOver : MonoBehaviour
     {
         GameManager.Instance.score = 0;
         GameManager.Instance.ballCount = 0;
+        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
     }
 

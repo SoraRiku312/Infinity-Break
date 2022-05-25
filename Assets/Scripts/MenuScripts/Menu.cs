@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    private void Awake()
+    {
+        GameManager.Instance.LoadGame();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +23,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -27,6 +34,7 @@ public class Menu : MonoBehaviour
 
     public void Quit()
     {
+        GameManager.Instance.SaveGame();
         Application.Quit();
     }
 }

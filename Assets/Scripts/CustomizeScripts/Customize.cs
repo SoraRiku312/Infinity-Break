@@ -21,6 +21,8 @@ public class Customize : MonoBehaviour
         switch (item)
         {
             case "Soccer Ball":
+                if (GameManager.Instance.dust < 20) return;
+                GameManager.Instance.dust -= 20;
                 GameManager.Instance.currentBall = "Soccer Ball";
                 break;
             case "Tennis Ball":
@@ -30,5 +32,6 @@ public class Customize : MonoBehaviour
                 GameManager.Instance.currentBall = "Bowling Ball";
                 break;            
         }
+        GameManager.Instance.SaveGame();
     }
 }

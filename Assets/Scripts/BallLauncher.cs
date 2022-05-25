@@ -10,7 +10,7 @@ public class BallLauncher : MonoBehaviour
     private Camera _camera;
     private LaunchPreview _launchPreview;
     private int _ballsReady;
-    private float _timeBetweenBalls = 0.1f;
+    private float _timeBetweenBalls = 0.2f;
     private bool _canLaunch = true;
     private BlockSpawner _blockSpawner;
     private Ball _ballPrefab;
@@ -38,6 +38,7 @@ public class BallLauncher : MonoBehaviour
     {
         _camera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -180,7 +181,6 @@ public class BallLauncher : MonoBehaviour
 
 //2.0
 //make balls upgrade when bounced up, do double damage, 3x, etc. change color rarities like borderlands
-//bug make bumper not destroy blocks ez fix
 //still clamp linerenderer
 //colors change every 5 hp of blocks, rotate through rainbow set number
 //

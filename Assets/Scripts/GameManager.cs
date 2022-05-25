@@ -19,7 +19,28 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame();
+    }
+    
+    public void LoadGame()
+    {
+        GameData data = SaveSystem.LoadGame();
+        if (data == null)
+            return;
+        dust = data.stardust;
     }
 
     public int score;
